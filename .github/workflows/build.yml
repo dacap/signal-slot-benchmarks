@@ -1,0 +1,81 @@
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        build_type: [debug]
+        # build_type: [debug,release]
+        sanitizer: [""]
+        include:
+          - os: windows-latest
+            triplet: x64-windows
+            vcpkgCommitId: '0dc27b9b672cb9d069cf58c48f3ae3f7395d108b'
+          - os: macos-latest
+            triplet: x64-osx
+            vcpkgCommitId: '0dc27b9b672cb9d069cf58c48f3ae3f7395d108b'
+          - os: ubuntu-latest
+            triplet: x64-linux
+            vcpkgCommitId: '0dc27b9b672cb9d069cf58c48f3ae3f7395d108b'
+          # - os: macos-latest
+          #   build_type: debug
+          #   sanitizer: "-fsanitize=thread"
+          # - os: macos-latest
+          #   build_type: debug
+          #   sanitizer: "-fsanitize=address"
+          # - os: ubuntu-latest
+          #   build_type: release
+    steps:
+    - uses: actions/checkout@v2
+    - uses: seanmiddleditch/gha-setup-ninja@master
+    - uses: ilammy/msvc-dev-cmd@v1
+      if: runner.os == 'Windows'
+    - uses: lukka/get-cmake@latest
+    - uses: lukka/run-vcpkg@v6
+      with:
+        appendedCacheKey: ${{ hashFiles( '**/vcpkg_manifest/vcpkg.json' ) }}
+        vcpkgTriplet: ${{ matrix.triplet }}
+        vcpkgArguments: boost-system boost-chrono boost-thread gtest
+        vcpkgGitCommitId: 0dc27b9b672cb9d069cf58c48f3ae3f7395d108b
+
+    # - name: Install Dependencies
+    #   shell: bash
+    #   run: |
+    #     if [[ "${{ runner.os }}" == "Windows" ]] ; then
+    #       export VCPKG_DEFAULT_TRIPLET=x64-windows
+    #       vcpkg install \
+    #         boost-system \
+    #         boost-chrono \
+    #         boost-thread \
+    #         gtest
+    #     elif [[ "${{ runner.os }}" == "macOS" ]] ; then
+    #       brew install \
+    #         boost googletest
+    #     else
+    #       sudo apt-get update -qq
+    #       sudo apt-get install -y \
+    #         libboost-dev \
+    #         libboost-system-dev \
+    #         libboost-chrono-dev \
+    #         libboost-thread-dev \
+    #         libgtest-dev
+    #     fi
+
+    - name: Generating Makefiles
+      shell: bash
+      run: |
+        cmake . -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DCMAKE_CXX_FLAGS=${{ matrix.sanitizer }}  \
+          -DCMAKE_EXE_LINKER_FLAGS=${{ matrix.sanitizer }}
+    - name: Compiling
+      shell: bash
+      run: |
+        ninja
+    - name: Running Tests
+      shell: bash
+      run: |
+        ./tests
