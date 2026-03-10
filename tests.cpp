@@ -13,6 +13,7 @@
 #include "tests/hpp/signal_traits_cps_st.hpp"
 #include "tests/hpp/signal_traits_css.hpp"
 #include "tests/hpp/signal_traits_dob.hpp"
+#include "tests/hpp/signal_traits_dob_st.hpp"
 #include "tests/hpp/signal_traits_evl.hpp"
 #include "tests/hpp/signal_traits_ics.hpp"
 #include "tests/hpp/signal_traits_jls.hpp"
@@ -82,6 +83,7 @@ using all_traits =
     signal_traits_cps_st,
     signal_traits_css,
     signal_traits_dob,
+    signal_traits_dob_st,
     signal_traits_evl,
     signal_traits_ics,
     signal_traits_jls,

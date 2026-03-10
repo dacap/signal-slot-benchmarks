@@ -15,7 +15,7 @@ add_library(signal_libraries
     benchmark/lib/CppFakeIt/libfastsignals/src/function_detail.cpp
     benchmark/lib/CppFakeIt/libfastsignals/src/lfs_connection.cpp
     benchmark/lib/CppFakeIt/libfastsignals/src/signal_impl.cpp
-    benchmark/lib/dacap/obs/dacap_connection.cpp
+    benchmark/lib/dacap/obs/connection.cpp
     benchmark/lib/i42output/src/async_task.cpp
     benchmark/lib/i42output/src/async_thread.cpp
     benchmark/lib/i42output/src/event.cpp
@@ -52,6 +52,7 @@ add_executable(bench
     benchmark/cpp/benchmark_cps_st.cpp
     benchmark/cpp/benchmark_css.cpp
     benchmark/cpp/benchmark_dob.cpp
+    benchmark/cpp/benchmark_dob_st.cpp
     benchmark/cpp/benchmark_evl.cpp
     benchmark/cpp/benchmark_ics.cpp
     benchmark/cpp/benchmark_jls.cpp

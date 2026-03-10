@@ -1,11 +1,13 @@
 // Observable Library
-// Copyright (c) 2016 David Capello
+// Copyright (c) 2016-present David Capello
 //
 // This file is released under the terms of the MIT license.
 // Read LICENSE.txt for more information.
 
-#include "dacap_connection.h"
-#include "dacap_signal.h"
+#include "./connection.h"
+#include "./signal.h"
+
+#include <cassert>
 
 namespace obs {
 

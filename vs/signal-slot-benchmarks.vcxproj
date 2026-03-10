@@ -237,6 +237,7 @@
     <ClInclude Include="..\benchmark\hpp\benchmark_cps_st.hpp" />
     <ClInclude Include="..\benchmark\hpp\benchmark_css.hpp" />
     <ClInclude Include="..\benchmark\hpp\benchmark_dob.hpp" />
+    <ClInclude Include="..\benchmark\hpp\benchmark_dob_st.hpp" />
     <ClInclude Include="..\benchmark\hpp\benchmark_evl.hpp" />
     <ClInclude Include="..\benchmark\hpp\benchmark_ics.hpp" />
     <ClInclude Include="..\benchmark\hpp\benchmark_jls.hpp" />
@@ -285,8 +286,8 @@
     <ClInclude Include="..\benchmark\lib\CppFakeIt\libfastsignals\include\signal_impl.h" />
     <ClInclude Include="..\benchmark\lib\CppFakeIt\libfastsignals\include\spin_mutex.h" />
     <ClInclude Include="..\benchmark\lib\CppFakeIt\libfastsignals\include\type_traits.h" />
-    <ClInclude Include="..\benchmark\lib\dacap\obs\dacap_connection.h" />
-    <ClInclude Include="..\benchmark\lib\dacap\obs\dacap_signal.h" />
+    <ClInclude Include="..\benchmark\lib\dacap\obs\connection.h" />
+    <ClInclude Include="..\benchmark\lib\dacap\obs\signal.h" />
     <ClInclude Include="..\benchmark\lib\dacap\obs\observable.h" />
     <ClInclude Include="..\benchmark\lib\dacap\obs\observers.h" />
     <ClInclude Include="..\benchmark\lib\dacap\obs\safe_list.h" />
@@ -374,6 +375,7 @@
     <ClCompile Include="..\benchmark\cpp\benchmark_cps_st.cpp" />
     <ClCompile Include="..\benchmark\cpp\benchmark_css.cpp" />
     <ClCompile Include="..\benchmark\cpp\benchmark_dob.cpp" />
+    <ClCompile Include="..\benchmark\cpp\benchmark_dob_st.cpp" />
     <ClCompile Include="..\benchmark\cpp\benchmark_evl.cpp" />
     <ClCompile Include="..\benchmark\cpp\benchmark_ics.cpp" />
     <ClCompile Include="..\benchmark\cpp\benchmark_jls.cpp" />

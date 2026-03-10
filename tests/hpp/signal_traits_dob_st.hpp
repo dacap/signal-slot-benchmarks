@@ -3,7 +3,7 @@
 #include <dacap/obs/connection.h>
 #include <dacap/obs/signal.h>
 
-struct signal_traits_dob
+struct signal_traits_dob_st
 {
   static constexpr bool has_signal_empty_test = false;
   static constexpr bool has_connection_connected_test = true;
@@ -13,7 +13,7 @@ struct signal_traits_dob
   static constexpr bool is_intrusive = false;
 
   template<typename Signature>
-  using signal = obs::signal<Signature>;
+  using signal = obs::fast_signal<Signature>;
 
   using connection = obs::connection;
 
