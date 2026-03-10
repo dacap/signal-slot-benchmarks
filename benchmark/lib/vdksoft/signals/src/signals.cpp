@@ -34,7 +34,7 @@ allocate(size_t size, size_t align)
 void default_memory_resource::
 deallocate(void * addr, size_t size, size_t align) noexcept
 {
-    ::operator delete(addr, size, std::align_val_t{ align });
+    ::operator delete(addr, std::align_val_t{ align });
 }
 
 memory_resource * get_default_resource() noexcept
