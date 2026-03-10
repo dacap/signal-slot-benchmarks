@@ -32,6 +32,13 @@ Tested Environments
             </button>
         </a>
 	</div>
+	<div style="flex:1;">
+        <a href="/results/benchmarks_clang/README.md">
+            <button type="button" style="padding:2em; cursor:pointer; font-size:2em; width:90%;">
+            	Clang 18 (Linux)
+            </button>
+        </a>
+	</div>
 </div>
 
 Maintainers
