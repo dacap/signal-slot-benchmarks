@@ -5,6 +5,8 @@
 
 #include "../../benchmark.hpp"
 
+#include <functional>
+
 class Lfs
 {
     is::signals::scoped_connection reg;
